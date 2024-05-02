@@ -1,5 +1,6 @@
 package com.github.devfullstackfranklynrsilva.helpdesk.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,5 +20,9 @@ public class TecnicoService {
 	public Tecnico findById(Integer id) {
 		Optional<Tecnico> obj = repository.findById(id);
 		return obj.orElseThrow(() -> new ObjectNotFoundException("Obejto não encontrado! Id: "+ id));
+	}
+
+	public List<Tecnico> findALL() {
+		return repository.findAll();
 	}
 }
